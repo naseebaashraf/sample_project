@@ -1,0 +1,31 @@
+{% extends 'myapp/admin_base.html' %}
+{% load static %}
+{% block title %}Add student{% endblock %}
+
+{% block body %}
+<center><h1>Add Student</h1>
+    {{msg}}
+    <div class="container">
+        <form role="form" name="frm" action="{% url 'admin_add_student' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="regno">Register Number</label>
+                <input type="text" class="form-control" name="regno" id="regno" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="course">Course</label>
+                <input type="text" class="form-control" name="course" id="course" required>
+            </div>
+            <button type="submit" class="btn btn-info" name="btn1" id="btn">Add Now </button>
+            <button type="reset" class="btn btn-info" name="btn2" id="btn2">Reset</button>
+        </form>
+
+    </div>
+
+</center>
+
+{% endblock %}

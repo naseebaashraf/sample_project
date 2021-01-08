@@ -1,0 +1,52 @@
+{% extends 'myapp/admin_base.html' %}
+{% load static %}
+{% block title %}student list {% endblock %}
+
+{%block body%}
+ <center>
+    <h2>Student Details</h2>
+     <div class="container">
+     <form name="frm">
+         <table class="table auto-index">
+             <thead class="thead-dark">
+                <tr>
+                    <th>Sl NO</th>
+                    <th>Register No.</th>
+                    <th>NAME</th>
+                    <th>COURSE</th>
+                </tr>
+
+             </thead>
+             <tbody>
+                {% for sd in stud_list %}
+                    <tr>
+                        <td></td> <!--here we get the id starting from 1 coz it is mentioned in style tag-->
+                        <td>{{sd.sregno}}</td>
+                        <td>{{sd.sname}}</td>
+                        <td>{{sd.scourse}}</td>
+                        <td><a href="../admin_delete_student?id={{sd.id}}">delete</a></td>
+                    </tr>
+                {% endfor %}
+
+
+             </tbody>
+         </table>
+     </form>
+     </div>
+ </center>
+<style>
+
+form
+{
+ counter-reset:Serial;
+}
+    table
+    {
+    }
+    .auto-index td:first-child:before
+    {
+     counter-increment:Serial; /* increment the serial counter*/
+     content:counter(Serial); /* display the counter*/
+    }
+</style>
+{%  endblock %}

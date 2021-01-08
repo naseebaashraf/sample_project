@@ -1,0 +1,9 @@
+{% extends 'myapp/user_base.html' %}
+{% load static %}
+{% block title %}User Home{% endblock%}
+{% block body %}
+    <center>
+    <h3>Welcome {{uname}}</h3>
+    <img src="{% static './myapp/image/tr.png'%}" width="300" height="300">
+</center>
+{% endblock %}

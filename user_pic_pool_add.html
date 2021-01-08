@@ -1,0 +1,22 @@
+{% extends 'myapp/user_base.html' %}
+{% load static %}
+{% block title %}Add Picture{% endblock%}
+{% block body %}
+    <center>
+    <h3>Add Picture</h3>
+    <div class="container">
+        {{msg}}
+        <form role="form" name="frm" action="{%url 'user_pic_pool_add'%}" method="post"
+            enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="document">Picture</label>
+                <input type="file" name="document" id="document" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-info" id="bt1" name="bt1">Upload</button>
+            <button type="reset" class="btn btn-info" id="bt2" name="bt2">Reset</button>
+            {% csrf_token %}
+        </form>
+    </div>
+</center>
+{% endblock %}
